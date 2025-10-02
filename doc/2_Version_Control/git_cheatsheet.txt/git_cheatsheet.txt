@@ -10,3 +10,8 @@ git merge - combines changes from one branch to another, use to bring new featur
 git rebase - reapplies commits from your branch onto another branch's history, use to create a cleaner project history
 git fetch - downloads changes from a remote repository but does not merge them, use to see what others have pushed before deciding to 
 merge or rebase
+git add - adds the file to the staging area when you create a new file to track it 
+git status - shows which files are ready to commit and untracked
+git log - checks where your commit is in the Git history tree
+-u remote branch under git push - used to upload local commit to remote and commit to your fork 
+git diff - shows the new changes in your file 
