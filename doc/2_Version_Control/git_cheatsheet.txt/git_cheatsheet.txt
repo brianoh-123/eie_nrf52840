@@ -1,0 +1,12 @@
+git commit - saves your staged changes to the repository gistory with a messgae, use when made and staged changes with git add and
+want to permanently record them
+git branch - lists, creates, or deletes branches, use to check which branches exist, create a new branch, or clean up old ones
+git checkout - switches to a different branch or restores files from a commit, use to move between bracnhes or roll back a file to a 
+specific version
+git pull - fetches changes from a remote repository and merges them into the current branch, use to update your local branch with the latest
+changes from teammates
+git push - uploads your local commits to a remote repository, use after committing changes locally to share them with other on github
+git merge - combines changes from one branch to another, use to bring new features or fixes from one branch into your working branch
+git rebase - reapplies commits from your branch onto another branch's history, use to create a cleaner project history
+git fetch - downloads changes from a remote repository but does not merge them, use to see what others have pushed before deciding to 
+merge or rebase
