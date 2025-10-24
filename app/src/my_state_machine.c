@@ -11,7 +11,7 @@
 
 static void led_on_state_entry(void* o);
 static enum smf_state_result led_on_state_run(void* o);
-static void led_off_state_entry led_off_state_run(void*o);
+static void led_off_state_entry(void*o);
 static enum smf_state_result led_off_state_run(void* o);
 
 // Typedefs
@@ -38,7 +38,7 @@ static const struct smf_state led_states[] = {
 static led_state_object_t led_state_object;
 
 void state_machine_init(){
-    led_state_object.count = 0
+    led_state_object.count = 0;
     smf_set_initial (SMF_CTX(&led_state_object), &led_states[LED_ON_STATE]);
 }
 
@@ -53,11 +53,26 @@ static void led_on_state_entry(void* o){
 static enum smf_state_result led_on_state_run(void* o){
     if (led_state_object.count > 500){
         led_state_object.count = 0;
-        smf_set_state(SMF_CTX(&led_state_object), &led_states[LED_ON_STATE]);
+        smf_set_state(SMF_CTX(&led_state_object), &led_states[LED_OFF_STATE]);
     }
     else{
         led_state_object.count++;
     }
-    
+
+    return SMF_EVENT_HANDLED;
+}
+
+static void led_off_state_entry(void* o){
+    LED_set(LED0, LED_OFF);
+}
+
+static enum smf_state_result led_off_state_run(void*o){
+    if (led_state_object.count > 500){
+        led_state_object.count = 0;
+        smf_set_state(SMF_CTX(&led_state_object), &led_states[LED_ON_STATE]);
+    }
+    else{
+        led_state_object.count ++;
+    }
     return SMF_EVENT_HANDLED;
 }
